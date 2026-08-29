@@ -78,9 +78,6 @@ agencies:
       Community-Police Engagement Commission: /city-hall/meetings-agendas/boards-commissions/community-police-engagement-commission
     deep_fetch: false
     enabled: true
-    forward_only: true
-    enabled_date: "2026-07-13"
-    local_only: true
 
   encinitas:
     name: City of Encinitas
@@ -196,7 +193,8 @@ agencies:
       City Council: 10494
     deep_fetch: false
     enabled: true
-    tally_only: true
+    forward_only: true
+    enabled_date: "2026-07-13"
 
   vista:
     name: City of Vista
@@ -214,7 +212,8 @@ agencies:
       Planning Commission: 292972
     deep_fetch: false
     enabled: true
-    tally_only: true
+    forward_only: true
+    enabled_date: "2026-07-13"
 
   # ── South County / East County / Central ──────────────────────────
 
