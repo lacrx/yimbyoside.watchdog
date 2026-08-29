@@ -49,33 +49,47 @@ agencies:
   carlsbad:
     name: City of Carlsbad
     region: north_county_coastal
-    platform: carlsbad_cms
-    base_url: https://www.carlsbadca.gov
-    lookback_months: 2
+    platform: swagit
+    base_url: https://carlsbadca.new.swagit.com
+    swagit_view_id: "295"
+    swagit_prefix: cb
+    swagit_bodies:
+      City Council: city-council
+      Planning Commission: planning-commission
+      All Boards/Commissions: all-boards-commissions
+      Traffic Safety & Mobility Commission: traffic-mobility
+    swagit_archive_slugs:
+      City Council:
+        - city-council-2021
+        - city-council-2020
+        - city-council-2019
+        - city-council-2018
+        - city-council-2017
+        - city-council-2016
+        - city-council-2015
+        - city-council-2014
+        - city-council-2013
+        - city-council-2012
+        - city-council-2011
+        - city-council-2007-2010
+      Planning Commission:
+        - planning-commission-2021
+        - planning-commission-2020
+        - planning-commission-2019
+        - planning-commission-2018
+        - planning-commission-2017
+        - planning-commission-2016
+        - planning-commission-2015
+        - planning-commission-2014
+        - planning-commission-2013
+        - planning-commission-2012
+        - planning-commission-2011
+        - planning-commission-2007-2010
     bodies:
       - City Council
       - Planning Commission
-      - Housing Commission
-      - Arts Commission
-      - Historic Preservation Commission
-      - Environmental Sustainability Commission
-      - Parks & Recreation Commission
-      - Library Board of Trustees
-      - Senior Commission
+      - All Boards/Commissions
       - Traffic Safety & Mobility Commission
-      - Community-Police Engagement Commission
-    body_pages:
-      City Council: /city-hall/meetings-agendas
-      Planning Commission: /city-hall/meetings-agendas/boards-commissions/planning-commission
-      Housing Commission: /city-hall/meetings-agendas/boards-commissions/housing-commission
-      Arts Commission: /city-hall/meetings-agendas/boards-commissions/arts-commission
-      Historic Preservation Commission: /city-hall/meetings-agendas/boards-commissions/historic-preservation
-      Environmental Sustainability Commission: /city-hall/meetings-agendas/boards-commissions/environmental-sustainability-commission
-      Parks & Recreation Commission: /city-hall/meetings-agendas/boards-commissions/parks-recreation
-      Library Board of Trustees: /city-hall/meetings-agendas/boards-commissions/library-board-of-trustees
-      Senior Commission: /city-hall/meetings-agendas/boards-commissions/senior-commission
-      Traffic Safety & Mobility Commission: /city-hall/meetings-agendas/boards-commissions/traffic-mobility-commission
-      Community-Police Engagement Commission: /city-hall/meetings-agendas/boards-commissions/community-police-engagement-commission
     deep_fetch: false
     enabled: true
 

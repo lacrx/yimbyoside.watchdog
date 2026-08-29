@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import subprocess
 import time
 from datetime import datetime
@@ -12,6 +13,23 @@ from pathlib import Path
 
 import requests
 import yaml
+
+
+def _resolve_bin(name):
+    """Find a working binary, preferring /usr/bin when linuxbrew is broken."""
+    system_path = Path(f"/usr/bin/{name}")
+    if system_path.exists():
+        try:
+            subprocess.run([str(system_path), "--version"],
+                           capture_output=True, timeout=5)
+            return str(system_path)
+        except Exception:
+            pass
+    return shutil.which(name) or name
+
+
+PDFTOTEXT_BIN = _resolve_bin("pdftotext")
+CURL_BIN = _resolve_bin("curl")
 
 
 ENV_FILE = Path(__file__).parent / ".env"
@@ -104,7 +122,7 @@ def extract_text(pdf_path):
         return txt_path.read_text()
     try:
         result = subprocess.run(
-            ["pdftotext", "-layout", str(pdf_path), str(txt_path)],
+            [PDFTOTEXT_BIN, "-layout", str(pdf_path), str(txt_path)],
             capture_output=True, text=True, timeout=60,
         )
         if result.returncode == 0 and txt_path.exists():

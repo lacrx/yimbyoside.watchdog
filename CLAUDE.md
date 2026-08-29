@@ -87,7 +87,7 @@ Permits and planning projects are standalone structured data (type, description,
 
 ## Platform Scraper Modules
 
-Each scraper in `scrapers/` implements a platform adapter. `lambda_handler.py` dispatches by the `platform` field in `agencies.yaml`. Supported platforms: `legistar_html`, `legistar_odata`, `escribe`, `civicplus`, `civicclerk`, `granicus`, `carlsbad_cms`, `laserfiche`, `primegov`, custom HTML.
+Each scraper in `scrapers/` implements a platform adapter. `lambda_handler.py` dispatches by the `platform` field in `agencies.yaml`. Supported platforms: `legistar_html`, `legistar_odata`, `escribe`, `civicplus`, `civicclerk`, `granicus`, `swagit`, `carlsbad_cms`, `laserfiche`, `primegov`, custom HTML.
 
 `civic_utils.py` provides shared helpers: `load_agencies()`, `agency_data_dir()`, PDF-to-text, content hashing.
 

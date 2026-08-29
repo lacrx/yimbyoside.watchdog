@@ -174,6 +174,9 @@ while IFS='|' read -r SLUG PLATFORM NAME AGENCY_YEARS; do
         carlsbad_cms)
             run_with_timeout "$NAME fetch" python3 scrapers/carlsbad.py fetch $AGENCY_DEEP --years "$FETCH_YEARS" >> "$LOG_FILE" 2>&1
             ;;
+        swagit)
+            run_with_timeout "$NAME fetch" python3 scrapers/swagit.py fetch --agency "$SLUG" $AGENCY_DEEP --years "$FETCH_YEARS" >> "$LOG_FILE" 2>&1
+            ;;
         solana_drupal)
             run_with_timeout "$NAME fetch" python3 scrapers/solana_beach.py fetch $AGENCY_DEEP --years "$FETCH_YEARS" >> "$LOG_FILE" 2>&1
             ;;

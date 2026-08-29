@@ -29,13 +29,13 @@ sys.path.insert(0, str(REPO_ROOT))
 
 from bs4 import BeautifulSoup
 
-from civic_utils import extract_text, save_json, load_json, agency_data_dir, load_agencies, cmd_list_meetings, rebuild_doc_index, log_discovery
+from civic_utils import extract_text, save_json, load_json, agency_data_dir, load_agencies, cmd_list_meetings, rebuild_doc_index, log_discovery, CURL_BIN
 
 SLUG = "carlsbad"
 BASE_URL = "https://www.carlsbadca.gov"
 
 CURL_BASE = [
-    "curl", "-s", "--compressed", "--max-time", "30",
+    CURL_BIN, "-s", "--compressed", "--max-time", "30",
     "-H", "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
     "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "-H", "Accept-Language: en-US,en;q=0.5",
@@ -90,7 +90,7 @@ def curl_get(url, extra_headers=None, timeout=30):
 def curl_download(url, dest_path, referer=None, timeout=60):
     """Download file via curl. Returns True on success."""
     cmd = [
-        "curl", "-s", "--compressed", "--max-time", str(timeout),
+        CURL_BIN, "-s", "--compressed", "--max-time", str(timeout),
         "-H", "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
         "-H", "Accept: application/pdf,*/*",
         "-H", "Connection: keep-alive",
